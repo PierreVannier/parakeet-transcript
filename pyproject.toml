@@ -1,0 +1,12 @@
+[project]
+name = "parakeet-transcript"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mlx>=0.25.2",
+    "numpy>=2.2.5",
+    "parakeet-mlx>=0.2.6",
+    "sounddevice>=0.5.1",
+]
