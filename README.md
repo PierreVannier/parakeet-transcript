@@ -222,6 +222,12 @@ The repository includes a small utility (`overlay_gif.py`) that demonstrates how
 to place an animated GIF on top of an MP4 file at a specific time and position.
 It relies on the [`moviepy`](https://zulko.github.io/moviepy/) library.
 
+If you haven't installed `moviepy`, you can do so with:
+
+```bash
+pip install moviepy
+```
+
 Example usage:
 
 ```bash
