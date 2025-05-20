@@ -11,4 +11,6 @@ dependencies = [
     "sounddevice>=0.5.1",
     "moviepy>=1.0.3",
     "drawsvg>=2.0.0",
+    "framesvg>=0.1.0",
+    "cairosvg>=2.7.0",
 ]
