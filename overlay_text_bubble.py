@@ -93,6 +93,8 @@ def overlay_text_bubble_on_video(
     bubble_clip = ImageClip(bubble_png).set_start(start).set_position(position)
     if end is not None:
         bubble_clip = bubble_clip.set_end(end)
+    else:
+        bubble_clip = bubble_clip.set_duration(video_clip.duration)
 
     final_clip = CompositeVideoClip([video_clip, bubble_clip])
     final_clip.write_videofile(output_path, codec="libx264", audio_codec="aac")
