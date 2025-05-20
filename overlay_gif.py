@@ -16,7 +16,13 @@ from __future__ import annotations
 import argparse
 from typing import Tuple, Union
 
-from moviepy.editor import VideoFileClip, CompositeVideoClip
+try:
+    from moviepy.editor import VideoFileClip, CompositeVideoClip
+except ImportError as exc:  # pragma: no cover - moviepy is optional
+    raise ImportError(
+        "The moviepy package is required for this script."
+        " Install it with 'pip install moviepy'."
+    ) from exc
 
 
 def overlay_gif_on_video(
