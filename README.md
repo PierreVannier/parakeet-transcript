@@ -252,6 +252,36 @@ This cuts `input.mp4` to the 10–20 second range and overlays `anim.gif` at the
 coordinates (100, 200) from two seconds into the clip until the eight-second
 mark.
 
+### Overlaying Text Bubbles onto a Video
+
+Another utility in this repository, `overlay_text_bubble.py`, uses the
+[`drawsvg`](https://github.com/cduck/drawsvg) library to render simple
+speech bubbles and place them over an MP4 file with `moviepy`.
+
+If you haven’t installed these dependencies, do so with:
+
+```bash
+pip install moviepy drawsvg
+```
+
+Basic usage:
+
+```bash
+python overlay_text_bubble.py --video input.mp4 --text "Hello!" \
+    --start 3 --end 8 --position center --output output.mp4
+```
+
+This shows a speech bubble containing *Hello!* between the third and eighth
+second of the video.
+
+You can also customise the bubble size and position:
+
+```bash
+python overlay_text_bubble.py --video input.mp4 --text "Look" \
+    --bubble-width 400 --bubble-height 120 --position "50,200" \
+    --output custom.mp4
+```
+
 ### Customizing the Model
 
 You can use different Parakeet models with the `--model` parameter:
