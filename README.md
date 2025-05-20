@@ -223,10 +223,10 @@ to place an animated GIF on top of an MP4 file. The script can trim the input
 video to a specific range and control when the GIF appears and disappears. It
 relies on the [`moviepy`](https://zulko.github.io/moviepy/) library.
 
-If you haven't installed `moviepy`, you can do so with:
+If you haven't installed `moviepy` version 2 or later, you can do so with:
 
 ```bash
-pip install moviepy
+pip install "moviepy>=2"
 ```
 
 Basic usage:
@@ -251,6 +251,44 @@ python overlay_gif.py --video input.mp4 --gif anim.gif \
 This cuts `input.mp4` to the 10–20 second range and overlays `anim.gif` at the
 coordinates (100, 200) from two seconds into the clip until the eight-second
 mark.
+
+### Overlaying Text Bubbles onto a Video
+
+Another utility in this repository, `overlay_text_bubble.py`, can draw a
+speech bubble with [`drawsvg`](https://github.com/cduck/drawsvg) or place an
+existing bubble GIF on top of an MP4 file using `moviepy`. The script can also
+trim the input video and control when the bubble appears and disappears.
+
+If you haven’t installed these dependencies, do so with moviepy 2 or later:
+
+```bash
+pip install "moviepy>=2" drawsvg
+```
+
+Basic usage:
+
+```bash
+python overlay_text_bubble.py --video input.mp4 --text "Hello!" \
+    --bubble-start 3 --bubble-end 8 --position center --output output.mp4
+```
+
+This shows a speech bubble containing *Hello!* between the third and eighth
+second of the video.
+
+You can also customise the bubble size and position or trim the video:
+
+```bash
+python overlay_text_bubble.py --video input.mp4 --text "Look" \
+    --bubble-width 400 --bubble-height 120 --position "50,200" \
+    --clip-start 10 --clip-end 20 --output custom.mp4
+```
+
+If you already have a bubble GIF, you can overlay it instead of drawing one:
+
+```bash
+python overlay_text_bubble.py --video input.mp4 --bubble-gif bubble.gif \
+    --bubble-start 1 --bubble-end 5 --output with_gif.mp4
+```
 
 ### Customizing the Model
 
