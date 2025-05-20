@@ -10,4 +10,5 @@ dependencies = [
     "parakeet-mlx>=0.2.6",
     "sounddevice>=0.5.1",
     "moviepy>=1.0.3",
+    "drawsvg>=2.0.0",
 ]
