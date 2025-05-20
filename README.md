@@ -216,6 +216,22 @@ The `enhanced_transcription.py` script can be integrated with other tools:
 - **Speech analysis**: Use the JSON output for analyzing speech patterns
 - **Automated documentation**: Pipe the TXT output to a documentation generator
 
+### Overlaying GIFs onto a Video
+
+The repository includes a small utility (`overlay_gif.py`) that demonstrates how
+to place an animated GIF on top of an MP4 file at a specific time and position.
+It relies on the [`moviepy`](https://zulko.github.io/moviepy/) library.
+
+Example usage:
+
+```bash
+python overlay_gif.py --video input.mp4 --gif anim.gif \
+    --start 5 --position center --output output.mp4
+```
+
+This will insert `anim.gif` in the center of `input.mp4`, starting five seconds
+into the video, and save the result as `output.mp4`.
+
 ### Customizing the Model
 
 You can use different Parakeet models with the `--model` parameter:
