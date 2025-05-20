@@ -219,8 +219,9 @@ The `enhanced_transcription.py` script can be integrated with other tools:
 ### Overlaying GIFs onto a Video
 
 The repository includes a small utility (`overlay_gif.py`) that demonstrates how
-to place an animated GIF on top of an MP4 file at a specific time and position.
-It relies on the [`moviepy`](https://zulko.github.io/moviepy/) library.
+to place an animated GIF on top of an MP4 file. The script can trim the input
+video to a specific range and control when the GIF appears and disappears. It
+relies on the [`moviepy`](https://zulko.github.io/moviepy/) library.
 
 If you haven't installed `moviepy`, you can do so with:
 
@@ -228,15 +229,28 @@ If you haven't installed `moviepy`, you can do so with:
 pip install moviepy
 ```
 
-Example usage:
+Basic usage:
 
 ```bash
 python overlay_gif.py --video input.mp4 --gif anim.gif \
-    --start 5 --position center --output output.mp4
+    --gif-start 5 --position center --output output.mp4
 ```
 
-This will insert `anim.gif` in the center of `input.mp4`, starting five seconds
-into the video, and save the result as `output.mp4`.
+This inserts `anim.gif` in the center of `input.mp4`, starting five seconds into
+the video, and saves the result as `output.mp4`.
+
+You can also trim the source video and specify when the GIF disappears:
+
+```bash
+python overlay_gif.py --video input.mp4 --gif anim.gif \
+    --clip-start 10 --clip-end 20 \
+    --gif-start 2 --gif-end 8 --position "100,200" \
+    --output clipped.mp4
+```
+
+This cuts `input.mp4` to the 10–20 second range and overlays `anim.gif` at the
+coordinates (100, 200) from two seconds into the clip until the eight-second
+mark.
 
 ### Customizing the Model
 
