@@ -252,6 +252,31 @@ This cuts `input.mp4` to the 10–20 second range and overlays `anim.gif` at the
 coordinates (100, 200) from two seconds into the clip until the eight-second
 mark.
 
+### Overlaying Animated SVGs from a GIF URL
+
+The script `overlay_framesvg.py` demonstrates how to take an animated GIF from
+a URL, convert it to an SVG using the
+[FrameSVG](https://github.com/Romelium/FrameSVG) library and then composite that
+animation over a video. The SVG is rendered frame by frame so it can be placed
+with `moviepy` just like a normal image sequence.
+
+Required dependencies can be installed with:
+
+```bash
+pip install moviepy framesvg cairosvg
+```
+
+Example usage:
+
+```bash
+python overlay_framesvg.py --video input.mp4 \
+    --gif-url https://example.com/anim.gif \
+    --gif-start 1 --position center --output output.mp4
+```
+
+This downloads the GIF, converts it to an SVG and overlays the animation in the
+center of the video starting one second into the clip.
+
 ### Overlaying Text Bubbles onto a Video
 
 Another utility in this repository, `overlay_text_bubble.py`, uses the
